@@ -18,24 +18,24 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
      TF3DSphere = class( TF3DShaper )
      private
-       ///// メソッド
+       ///// M E T H O D
        function XYtoI( const X_,Y_:Integer ) :Integer; inline;
      protected
        _Polygons :TMeshData;
        _Material :TLightMaterialSource;
        _DivX     :Integer;
        _DivY     :Integer;
-       ///// アクセス
+       ///// A C C E S S O R
        procedure SetDivX( const DivX_:Integer );
        procedure SetDivY( const DivY_:Integer );
-       ///// メソッド
+       ///// M E T H O D
        procedure Render; override;
        procedure MakeGeometry; override;
        procedure MakeTopology; override;
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       ///// P R O P E R T Y
        property Material :TLightMaterialSource read _Material write   _Material;
        property DivX     :Integer              read _DivX     write SetDivX    ;
        property DivY     :Integer              read _DivY     write SetDivY    ;
@@ -64,7 +64,7 @@ end;
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//////////////////////////////////////////////////////////////// A C C E S S O R
 
 procedure TF3DSphere.SetDivX( const DivX_:Integer );
 begin
@@ -76,7 +76,7 @@ begin
      _DivY := DivY_;  upGeometry := True;  upTopology := True;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//////////////////////////////////////////////////////////////////// M E T H O D
 
 procedure TF3DSphere.Render;
 begin

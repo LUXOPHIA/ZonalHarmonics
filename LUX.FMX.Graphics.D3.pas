@@ -17,7 +17,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      TF3DObject = class( TControl3D )
      private
      protected
-       ///// アクセス
+       ///// A C C E S S O R
        function GetAbsoPose :TSingleM4;
        procedure SetAbsoPose( const AbsoPose_:TSingleM4 );
        function GetLocaPose :TSingleM4;
@@ -35,7 +35,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       ///// P R O P E R T Y
        property AbsoPose  :TSingleM4 read GetAbsoPose  write SetAbsoPose ;
        property LocaPose  :TSingleM4 read GetLocaPose  write SetLocaPose ;
        property     Pose  :TSingleM4 read GetLocaPose  write SetLocaPose ;
@@ -66,7 +66,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      private
      protected
        _Camera :FMX.Controls3D.TCamera;
-       ///// アクセス
+       ///// A C C E S S O R
        function GetAbsoPose :TSingleM4;
        procedure SetAbsoPose( const AbsoPose_:TSingleM4 );
        function GetLocaPose :TSingleM4;
@@ -84,7 +84,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       ///// P R O P E R T Y
        property Camera    :TCamera   read   _Camera                      ;
        property AbsoPose  :TSingleM4 read GetAbsoPose  write SetAbsoPose ;
        property LocaPose  :TSingleM4 read GetLocaPose  write SetLocaPose ;
@@ -105,7 +105,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      TF3DLight = class( FMX.Controls3D.TLight )
      private
      protected
-       ///// アクセス
+       ///// A C C E S S O R
        function GetAbsoPose :TSingleM4;
        procedure SetAbsoPose( const AbsoPose_:TSingleM4 );
        function GetLocaPose :TSingleM4;
@@ -123,7 +123,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパテ
+       ///// P R O P E R T Y
        property AbsoPose  :TSingleM4 read GetAbsoPose  write SetAbsoPose ;
        property LocaPose  :TSingleM4 read GetLocaPose  write SetLocaPose ;
        property     Pose  :TSingleM4 read GetLocaPose  write SetLocaPose ;
@@ -145,7 +145,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      protected
        upGeometry :Boolean;
        upTopology :Boolean;
-       ///// メソッド
+       ///// M E T H O D
        procedure Render; override;
        procedure MakeGeometry; virtual; abstract;
        procedure MakeTopology; virtual; abstract;
