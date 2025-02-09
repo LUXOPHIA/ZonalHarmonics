@@ -4,7 +4,8 @@
 
 interface //#################################################################### ■
 
-uses LUX.S2;
+uses LUX,
+     LUX.S2;
 
 //type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【 T Y P E 】
 
@@ -33,7 +34,6 @@ function ChainSlerp( const Ps_:TArray<TDoubleW2S> ) :TDoubleW2S; overload;
 implementation //############################################################### ■
 
 uses System.Math,
-     LUX,
      LUX.D3,
      LUX.S2.Curve.Glerp;
 

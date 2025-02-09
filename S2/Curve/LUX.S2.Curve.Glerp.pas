@@ -101,7 +101,9 @@ var
    P :TSingle2S;
 begin
      Result := 0;
+
      for P in Ps_ do Result := Result + P;
+
      Result := Result.Unitor;
 end;
 
@@ -110,7 +112,9 @@ var
    P :TDouble2S;
 begin
      Result := 0;
+
      for P in Ps_ do Result := Result + P;
+
      Result := Result.Unitor;
 end;
 
