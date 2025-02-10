@@ -39,7 +39,7 @@ function Glerp( const Ps_:TArray<TDoubleW2S> ) :TDoubleW2S; overload;
 
 implementation //############################################################### ■
 
-uses LUX, LUX.Curve.Linear.D3;
+uses LUX, LUX.S2.Curve.Lerp;
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【 R E C O R D 】
 
