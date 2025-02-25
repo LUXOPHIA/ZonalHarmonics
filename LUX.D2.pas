@@ -40,6 +40,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        class operator Multiply( const A_:Single; const B_:TSingle2D ) :TSingle2D; inline;
        class operator Divide( const A_:TSingle2D; const B_:Single ) :TSingle2D; inline;
        ///// C A S T
+       class operator Implicit( const V_:Single ) :TSingle2D;
        class operator Implicit( const V_:TPointF ) :TSingle2D;
        class operator Implicit( const V_:TSingle2D ) :TPointF;
        ///// C O N S T A N T
@@ -98,6 +99,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        class operator Multiply( const A_:Double; const B_:TDouble2D ) :TDouble2D; inline;
        class operator Divide( const A_:TDouble2D; const B_:Double ) :TDouble2D; inline;
        ///// C A S T
+       class operator Implicit( const V_:Double ) :TDouble2D;
        class operator Implicit( const V_:TPointF ) :TDouble2D;
        class operator Explicit( const V_:TDouble2D ) :TPointF;
        class operator Implicit( const V_:TSingle2D ) :TDouble2D;
@@ -232,105 +234,80 @@ end;
 
 class operator TSingle2D.Negative( const V_:TSingle2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := -V_.X;
-          Y := -V_.Y;
-     end;
+     Result.X := -V_.X;
+     Result.Y := -V_.Y;
 end;
 
 class operator TSingle2D.Positive( const V_:TSingle2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := +V_.X;
-          Y := +V_.Y;
-     end;
+     Result.X := +V_.X;
+     Result.Y := +V_.Y;
 end;
 
 class operator TSingle2D.Add( const A_,B_:TSingle2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := A_.X + B_.X;
-          Y := A_.Y + B_.Y;
-     end;
+     Result.X := A_.X + B_.X;
+     Result.Y := A_.Y + B_.Y;
 end;
 
 class operator TSingle2D.Subtract( const A_,B_:TSingle2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := A_.X - B_.X;
-          Y := A_.Y - B_.Y;
-     end;
+     Result.X := A_.X - B_.X;
+     Result.Y := A_.Y - B_.Y;
 end;
 
 class operator TSingle2D.Multiply( const A_:TSingle2D; const B_:Single ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := A_.X * B_;
-          Y := A_.Y * B_;
-     end;
+     Result.X := A_.X * B_;
+     Result.Y := A_.Y * B_;
 end;
 
 class operator TSingle2D.Multiply( const A_:Single; const B_:TSingle2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := A_ * B_.X;
-          Y := A_ * B_.Y;
-     end;
+     Result.X := A_ * B_.X;
+     Result.Y := A_ * B_.Y;
 end;
 
 class operator TSingle2D.Divide( const A_:TSingle2D; const B_:Single ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := A_.X / B_;
-          Y := A_.Y / B_;
-     end;
+     Result.X := A_.X / B_;
+     Result.Y := A_.Y / B_;
 end;
 
 //////////////////////////////////////////////////////////////////////// C A S T
 
+class operator TSingle2D.Implicit( const V_:Single ) :TSingle2D;
+begin
+     Result.X := V_;
+     Result.Y := V_;
+end;
+
+//------------------------------------------------------------------------------
+
 class operator TSingle2D.Implicit( const V_:TPointF ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 class operator TSingle2D.Implicit( const V_:TSingle2D ) :TPointF;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 //////////////////////////////////////////////////////////////// C O N S T A N T
 
 class function TSingle2D.IdentityX :TSingle2D;
 begin
-     with Result do
-     begin
-          X := 1;
-          Y := 0;
-     end;
+     Result.X := 1;
+     Result.Y := 0;
 end;
 
 class function TSingle2D.IdentityY :TSingle2D;
 begin
-     with Result do
-     begin
-          X := 0;
-          Y := 1;
-     end;
+     Result.X := 0;
+     Result.Y := 1;
 end;
 
 //////////////////////////////////////////////////////////////////// M E T H O D
@@ -376,40 +353,28 @@ end;
 
 class function TSingle2D.RandG :TSingle2D;
 begin
-     with Result do
-     begin
-          X := TSingle.RandG;
-          Y := TSingle.RandG;
-     end;
+     Result.X := TSingle.RandG;
+     Result.Y := TSingle.RandG;
 end;
 
 //------------------------------------------------------------------------------
 
 class function TSingle2D.RandBS1 :TSingle2D;
 begin
-     with Result do
-     begin
-          X := TSingle.RandBS1;
-          Y := TSingle.RandBS1;
-     end;
+     Result.X := TSingle.RandBS1;
+     Result.Y := TSingle.RandBS1;
 end;
 
 class function TSingle2D.RandBS2 :TSingle2D;
 begin
-     with Result do
-     begin
-          X := TSingle.RandBS2;
-          Y := TSingle.RandBS2;
-     end;
+     Result.X := TSingle.RandBS2;
+     Result.Y := TSingle.RandBS2;
 end;
 
 class function TSingle2D.RandBS4 :TSingle2D;
 begin
-     with Result do
-     begin
-          X := TSingle.RandBS4;
-          Y := TSingle.RandBS4;
-     end;
+     Result.X := TSingle.RandBS4;
+     Result.Y := TSingle.RandBS4;
 end;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TDouble2D
@@ -481,125 +446,94 @@ end;
 
 class operator TDouble2D.Negative( const V_:TDouble2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := -V_.X;
-          Y := -V_.Y;
-     end;
+     Result.X := -V_.X;
+     Result.Y := -V_.Y;
 end;
 
 class operator TDouble2D.Positive( const V_:TDouble2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := +V_.X;
-          Y := +V_.Y;
-     end;
+     Result.X := +V_.X;
+     Result.Y := +V_.Y;
 end;
 
 class operator TDouble2D.Add( const A_,B_:TDouble2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := A_.X + B_.X;
-          Y := A_.Y + B_.Y;
-     end;
+     Result.X := A_.X + B_.X;
+     Result.Y := A_.Y + B_.Y;
 end;
 
 class operator TDouble2D.Subtract( const A_,B_:TDouble2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := A_.X - B_.X;
-          Y := A_.Y - B_.Y;
-     end;
+     Result.X := A_.X - B_.X;
+     Result.Y := A_.Y - B_.Y;
 end;
 
 class operator TDouble2D.Multiply( const A_:TDouble2D; const B_:Double ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := A_.X * B_;
-          Y := A_.Y * B_;
-     end;
+     Result.X := A_.X * B_;
+     Result.Y := A_.Y * B_;
 end;
 
 class operator TDouble2D.Multiply( const A_:Double; const B_:TDouble2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := A_ * B_.X;
-          Y := A_ * B_.Y;
-     end;
+     Result.X := A_ * B_.X;
+     Result.Y := A_ * B_.Y;
 end;
 
 class operator TDouble2D.Divide( const A_:TDouble2D; const B_:Double ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := A_.X / B_;
-          Y := A_.Y / B_;
-     end;
+     Result.X := A_.X / B_;
+     Result.Y := A_.Y / B_;
 end;
 
 //////////////////////////////////////////////////////////////////////// C A S T
 
+class operator TDouble2D.Implicit( const V_:Double ) :TDouble2D;
+begin
+     Result.X := V_;
+     Result.Y := V_;
+end;
+
+//------------------------------------------------------------------------------
+
 class operator TDouble2D.Implicit( const V_:TPointF ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 class operator TDouble2D.Explicit( const V_:TDouble2D ) :TPointF;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 //------------------------------------------------------------------------------
 
 class operator TDouble2D.Implicit( const V_:TSingle2D ) :TDouble2D;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 class operator TDouble2D.Explicit( const V_:TDouble2D ) :TSingle2D;
 begin
-     with Result do
-     begin
-          X := V_.X;
-          Y := V_.Y;
-     end;
+     Result.X := V_.X;
+     Result.Y := V_.Y;
 end;
 
 //////////////////////////////////////////////////////////////// C O N S T A N T
 
 class function TDouble2D.IdentityX :TDouble2D;
 begin
-     with Result do
-     begin
-          X := 1;
-          Y := 0;
-     end;
+     Result.X := 1;
+     Result.Y := 0;
 end;
 
 class function TDouble2D.IdentityY :TDouble2D;
 begin
-     with Result do
-     begin
-          X := 0;
-          Y := 1;
-     end;
+     Result.X := 0;
+     Result.Y := 1;
 end;
 
 //////////////////////////////////////////////////////////////////// M E T H O D
@@ -645,40 +579,28 @@ end;
 
 class function TDouble2D.RandG :TDouble2D;
 begin
-     with Result do
-     begin
-          X := TDouble.RandG;
-          Y := TDouble.RandG;
-     end;
+     Result.X := TDouble.RandG;
+     Result.Y := TDouble.RandG;
 end;
 
 //------------------------------------------------------------------------------
 
 class function TDouble2D.RandBS1 :TDouble2D;
 begin
-     with Result do
-     begin
-          X := TDouble.RandBS1;
-          Y := TDouble.RandBS1;
-     end;
+     Result.X := TDouble.RandBS1;
+     Result.Y := TDouble.RandBS1;
 end;
 
 class function TDouble2D.RandBS2 :TDouble2D;
 begin
-     with Result do
-     begin
-          X := TDouble.RandBS2;
-          Y := TDouble.RandBS2;
-     end;
+     Result.X := TDouble.RandBS2;
+     Result.Y := TDouble.RandBS2;
 end;
 
 class function TDouble2D.RandBS4 :TDouble2D;
 begin
-     with Result do
-     begin
-          X := TDouble.RandBS4;
-          Y := TDouble.RandBS4;
-     end;
+     Result.X := TDouble.RandBS4;
+     Result.Y := TDouble.RandBS4;
 end;
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【 C L A S S 】
