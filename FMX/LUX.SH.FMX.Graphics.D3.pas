@@ -202,7 +202,7 @@ var
    T :TDouble2D;
    M :TDoubleM4;
 begin
-     SPHarm.DegN := N;
+     if SPHarm.DegN <> N then SPHarm.DegN := N;
 
      with _Polygons.VertexBuffer do
      begin
@@ -225,8 +225,8 @@ begin
 
                     I := XYtoI( X, Y );
 
-                    Vertices [ I ] := M.AxisP;
-                    Normals  [ I ] := M.AxisZ;
+                    Vertices [ I ] := TPoint3D( M.AxisP );
+                    Normals  [ I ] := TPoint3D( M.AxisZ );
                     TexCoord0[ I ] := TPointF( T );
                end;
           end;
